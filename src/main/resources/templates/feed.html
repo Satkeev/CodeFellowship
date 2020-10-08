@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{common :: head}">
+</head>
+
+<body>
+<header>
+    <nav th:replace="~{common :: nav}"></nav>
+    <h1>Your Feed</h1>
+</header>
+
+<main>
+    <section id="posts">
+        <div class="post" th:each="post : ${posts}">
+            <p>Posted by: <a th:text="${post.postedBy}" th:href="'/users/' + ${post.postedBy.id}"></a></p>
+            <p th:text="'Posted at: ' + ${post.createdAt}"></p>
+            <p th:text="${post.body}"></p>
+        </div>
+    </section>
+</main>
+</body>
+
+</html>

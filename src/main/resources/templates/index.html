@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common :: head}">
+</head>
+
+<body>
+<header>
+    <nav th:replace="~{common :: nav}"> </nav>
+    <h1>Welcome to CodeFellowShip</h1>
+</header>
+
+<main>
+    <h2 th:if="${!loggedIn}">If you are new, click <a href="/signup">here</a> to signup</h2>
+    <h2 th:if="${loggedIn}" th:text="'Howdy, ' + ${user.firstName}"> </h2>
+    <h2 th:if="${!loggedIn}">Otherwise, please <a href="/login">login</a> to use the site</h2>
+    <a th:if="${loggedIn}" href="/myprofile"><h2>View Profile</h2></a>
+
+<!--    <img id="logo" src="/logo_image.png">-->
+</main>
+</body>
+</html>

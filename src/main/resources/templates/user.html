@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common :: head}">
+</head>
+
+<body>
+<header>
+    <nav th:replace="~{common :: nav}"></nav>
+    <h1 th:text="${user.username} + '\'s Profile'"></h1>
+</header>
+
+<main>
+    <div>
+        <img id="profile_pic" src="/default-user.png">
+        <form th:if="((${myProfile} == false) ? (${user.id} != ${viewer.id}))" th:action="'/users/' + ${user.id} + '/follow'" method="post">
+            <button type="submit">Follow</button>
+        </form>
+        <h2 th:text="'First Name: ' + ${user.firstName}"></h2>
+        <h2 th:text="'Last Name: ' + ${user.lastName}"></h2>
+        <h3 th:text="'Bio: ' + ${user.bio}"></h3>
+        <h3 th:text="'Date of Birth: ' + ${user.dateOfBirth}"></h3>
+    </div>
+
+    <section id="posts">
+        <div class="post" th:each="post : ${user.posts}">
+            <p th:text="'Posted at: ' + ${post.createdAt}"></p>
+            <p th:text="${post.body}"></p>
+        </div>
+    </section>
+
+    <form th:if="${myProfile}" id="addPost" action="/users/posts" method="post">
+        <label>Post: <input name="body"></label>
+        <input type="submit">
+    </form>
+</main>
+</body>
+</html>

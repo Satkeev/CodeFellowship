@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${status} + ' Error'"></title>
+</head>
+
+<body>
+<header>
+    <nav><a href="/"><li>Home</li></a> </nav>
+    <h1>Something didn't go right there :(</h1>
+</header>
+
+<main>
+    <h2 th:text="${status} + ' - ' + ${error} + ': ' + ${message}"></h2>
+</main>
+</body>
+</html>
