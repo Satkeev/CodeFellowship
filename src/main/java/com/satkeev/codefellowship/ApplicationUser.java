@@ -126,5 +126,16 @@ import java.security.Principal;
         public void setPassword(String password) {
             this.password = password;
         }
+
+        @ManyToMany(mappedBy = "followedUsers")
+        private Collection<ApplicationUser> applicationUsers;
+
+        public Collection<ApplicationUser> getApplicationUsers() {
+            return applicationUsers;
+        }
+
+        public void setApplicationUsers(Collection<ApplicationUser> applicationUsers) {
+            this.applicationUsers = applicationUsers;
+        }
     }
 
