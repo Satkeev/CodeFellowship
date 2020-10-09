@@ -20,4 +20,4 @@ Start the server:
  $ ./gradlew bootRun
 Browse to the local site:
 
-Go to: http://localhost:8080
+Go to: http://localhost:8080# codefellowship
